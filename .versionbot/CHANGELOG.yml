@@ -1,4 +1,14 @@
 - commits:
+    - subject: Fix gs-loader inclusion
+      hash: df389c65a2b642d6dfc773c7c40b0485decc03b5
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 1.0.1
+  date: 2020-07-15T19:33:45.941Z
+- commits:
     - subject: Add .versionbot/CHANGELOG.yml for nested changelogs
       hash: e3dc9a5b9e659663afa1deab04c87c5d1637f866
       body: ''
