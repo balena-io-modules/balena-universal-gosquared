@@ -5,6 +5,9 @@
   "main": "build/node.js",
   "browser": "build/browser.js",
   "scripts": {
+    "lint": "balena-lint -e js -e ts --typescript src/browser.js src/gs-loader.d.ts src/node.js",
+    "lint-fix": "balena-lint -e js -e ts --typescript --fix src/browser.js src/gs-loader.d.ts src/node.js",
+    "test": "npm run lint",
     "prepare": "tsc"
   },
   "keywords": [],
@@ -20,6 +23,7 @@
   },
   "homepage": "https://github.com/balena-io-modules/balena-universal-gosquared",
   "devDependencies": {
+    "@balena/lint": "^5.1.0",
     "typescript": "^3.9.6"
   }
 }

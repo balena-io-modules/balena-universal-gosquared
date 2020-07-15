@@ -1,36 +1,40 @@
-const Promise = require('bluebird')
-const GoSquared = require('gosquared')
+const Promise = require('bluebird');
+const GoSquared = require('gosquared');
 
-module.exports = function(gosquaredId, apiKey, _debug) {
-	let goSquared
+module.exports = function (gosquaredId, apiKey, _debug) {
+	let goSquared;
 
 	return {
-		boot: function() {
-			if (goSquared) return
+		boot: function () {
+			if (goSquared) {
+				return;
+			}
 			goSquared = new GoSquared({
 				api_key: apiKey,
-				site_token: gosquaredId
-			})
+				site_token: gosquaredId,
+			});
 		},
-		anonLogin: function() {
-			this.boot()
+		anonLogin: function () {
+			this.boot();
 		},
-		login: function(userId) {
-			if (!goSquared) this.boot()
+		login: function (userId) {
+			if (!goSquared) {
+				this.boot();
+			}
 
-			goSquared = goSquared.createPerson(userId)
+			goSquared = goSquared.createPerson(userId);
 		},
-		logout: function() {
-			goSquared = null
+		logout: function () {
+			goSquared = null;
 		},
-		track: function(prefix, type, data) {
+		track: function (prefix, type, data) {
 			// if called before `login` create an event without user attached.
-			this.boot()
+			this.boot();
 			return Promise.fromCallback(function (callback) {
 				// node sdk doesn't support pageviews so no conditional here.
 				// https://www.gosquared.com/docs/api/tracking/pageview/node/
-				goSquared.trackEvent('[' + prefix + '] ' + type, data, callback)
-			})
-		}
-	}
-}
+				goSquared.trackEvent('[' + prefix + '] ' + type, data, callback);
+			});
+		},
+	};
+};
