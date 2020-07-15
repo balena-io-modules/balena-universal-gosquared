@@ -32,12 +32,16 @@ module.exports = function (gosquaredId, apiKey, _debug) {
 			return new Promise(function (resolve, reject) {
 				// node sdk doesn't support pageviews so no conditional here.
 				// https://www.gosquared.com/docs/api/tracking/pageview/node/
-				goSquared.trackEvent('[' + prefix + '] ' + type, data, (err, result) => {
-					if (err) {
-						return reject(err)
-					}
-					resolve(result);
-				});
+				goSquared.trackEvent(
+					'[' + prefix + '] ' + type,
+					data,
+					(err, result) => {
+						if (err) {
+							return reject(err);
+						}
+						resolve(result);
+					},
+				);
 			});
 		},
 	};

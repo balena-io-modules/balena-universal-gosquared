@@ -19,6 +19,6 @@
 		"./src/**/*"
 	],
 	"exclude": [
-		"./src/gs-loader.js"
+		"./vendor/gs-loader.js"
 	]
 }
