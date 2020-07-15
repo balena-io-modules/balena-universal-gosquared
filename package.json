@@ -1,20 +1,28 @@
 {
-  "name": "resin-universal-gosquared",
+  "name": "balena-universal-gosquared",
   "version": "0.3.0",
   "description": "A CommonJS wrapper for both Node.js and browser (async) version of goSquared Analytics library",
-  "main": "src/node.js",
-  "browser": "src/browser.js",
-  "scripts": {},
+  "main": "build/node.js",
+  "browser": "build/browser.js",
+  "scripts": {
+    "lint": "balena-lint -e js -e ts --typescript src/browser.js src/gs-loader.d.ts src/node.js",
+    "lint-fix": "balena-lint -e js -e ts --typescript --fix src/browser.js src/gs-loader.d.ts src/node.js",
+    "test": "npm run lint",
+    "prepare": "tsc"
+  },
   "keywords": [],
-  "author": "Craig Mulligan <craig@resin.io>",
+  "author": "Craig Mulligan <craig@balena.io>",
   "license": "Apache-2.0",
   "dependencies": {
-    "bluebird": "^3.4.7",
     "gosquared": "3.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:balena-io-modules/resin-analytics.git"
+    "url": "git@github.com:balena-io-modules/balena-universal-gosquared.git"
   },
-  "homepage": "https://github.com/balena-io-modules/resin-universal-gosquared"
+  "homepage": "https://github.com/balena-io-modules/balena-universal-gosquared",
+  "devDependencies": {
+    "@balena/lint": "^5.1.0",
+    "typescript": "^3.9.6"
+  }
 }
