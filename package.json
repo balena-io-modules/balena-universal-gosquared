@@ -1,12 +1,12 @@
 {
-  "name": "resin-universal-gosquared",
+  "name": "balena-universal-gosquared",
   "version": "0.3.0",
   "description": "A CommonJS wrapper for both Node.js and browser (async) version of goSquared Analytics library",
   "main": "src/node.js",
   "browser": "src/browser.js",
   "scripts": {},
   "keywords": [],
-  "author": "Craig Mulligan <craig@resin.io>",
+  "author": "Craig Mulligan <craig@balena.io>",
   "license": "Apache-2.0",
   "dependencies": {
     "bluebird": "^3.4.7",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:balena-io-modules/resin-analytics.git"
+    "url": "git@github.com:balena-io-modules/balena-universal-gosquared.git"
   },
-  "homepage": "https://github.com/balena-io-modules/resin-universal-gosquared"
+  "homepage": "https://github.com/balena-io-modules/balena-universal-gosquared"
 }
