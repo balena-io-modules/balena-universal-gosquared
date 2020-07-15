@@ -1,4 +1,4 @@
-require('./gs-loader');
+require('../vendor/gs-loader');
 
 const TRACKER_NAME = 'resinAnalytics';
 
