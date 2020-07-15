@@ -1,6 +1,5 @@
 require('./gs-loader');
 
-const Promise = require('bluebird');
 const TRACKER_NAME = 'resinAnalytics';
 
 module.exports = function (gosquaredId, _apiKey, debug) {
@@ -43,17 +42,15 @@ module.exports = function (gosquaredId, _apiKey, debug) {
 		},
 		track: function (prefix, type, data) {
 			this.boot();
-			return Promise.fromCallback(function (callback) {
-				if (type === 'Page Visit') {
-					window._gs(
-						TRACKER_NAME + '.track',
-						data.url || window.location.pathname,
-					);
-				} else {
-					window._gs(TRACKER_NAME + '.event', '[' + prefix + '] ' + type, data);
-				}
-				callback();
-			});
+			if (type === 'Page Visit') {
+				window._gs(
+					TRACKER_NAME + '.track',
+					data.url || window.location.pathname,
+				);
+			} else {
+				window._gs(TRACKER_NAME + '.event', '[' + prefix + '] ' + type, data);
+			}
+			return Promise.resolve();
 		},
 	};
 };

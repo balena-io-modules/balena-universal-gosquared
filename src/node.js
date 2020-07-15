@@ -1,4 +1,3 @@
-const Promise = require('bluebird');
 const GoSquared = require('gosquared');
 
 module.exports = function (gosquaredId, apiKey, _debug) {
@@ -30,10 +29,15 @@ module.exports = function (gosquaredId, apiKey, _debug) {
 		track: function (prefix, type, data) {
 			// if called before `login` create an event without user attached.
 			this.boot();
-			return Promise.fromCallback(function (callback) {
+			return new Promise(function (resolve, reject) {
 				// node sdk doesn't support pageviews so no conditional here.
 				// https://www.gosquared.com/docs/api/tracking/pageview/node/
-				goSquared.trackEvent('[' + prefix + '] ' + type, data, callback);
+				goSquared.trackEvent('[' + prefix + '] ' + type, data, (err, result) => {
+					if (err) {
+						return reject(err)
+					}
+					resolve(result);
+				});
 			});
 		},
 	};
