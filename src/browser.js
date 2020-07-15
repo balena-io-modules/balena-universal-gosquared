@@ -1,11 +1,11 @@
 require('./gs-loader')
 
-var Promise = require('bluebird')
-var TRACKER_NAME = 'resinAnalytics'
+const Promise = require('bluebird')
+const TRACKER_NAME = 'resinAnalytics'
 
-module.exports = function (gosquaredId, apiKey, debug) {
-	var loggedIn = false
-	var booted = false
+module.exports = function (gosquaredId, _apiKey, debug) {
+	let loggedIn = false
+	let booted = false
 
 	return {
 		boot: function() {

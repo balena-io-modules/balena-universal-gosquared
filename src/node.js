@@ -1,8 +1,8 @@
-var Promise = require('bluebird')
-var GoSquared = require('gosquared')
+const Promise = require('bluebird')
+const GoSquared = require('gosquared')
 
-module.exports = function(gosquaredId, apiKey, debug) {
-	var goSquared
+module.exports = function(gosquaredId, apiKey, _debug) {
+	let goSquared
 
 	return {
 		boot: function() {
