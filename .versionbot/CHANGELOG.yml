@@ -1,0 +1,10 @@
+- version: 0.3.0
+  date: "2019-04-16T13:48:11Z"
+  commits:
+  - hash: b02246a4f9cd198da45413705fba43af0a25bff6
+    author: Dimitrios Lytras
+    footers:
+      change-type: minor
+      signed-off-by: Dimitrios Lytras <dimitrios@balena.io>
+    subject: Move the package to a dedicated repo
+    body: ""
